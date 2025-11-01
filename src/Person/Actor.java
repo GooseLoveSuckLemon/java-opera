@@ -34,9 +34,9 @@ public class Actor extends Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Actor actor = (Actor) o;
-        return Objects.equals(name, actor.name) &&                     // Double.compare(actor.height, height) == 0 &&
+        return Objects.equals(name, actor.name) &&
                 Objects.equals(surname, actor.surname) &&
-                height == actor.height;                                 // gender == actor.gender;
+                height == actor.height;
     }
 
     @Override
