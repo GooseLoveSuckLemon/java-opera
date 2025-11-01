@@ -1,6 +1,6 @@
 package Person;
 import Show.*;
-
+import java.util.Objects;
 public class Director extends Person {
 
     private final int numberOfShows;
@@ -10,11 +10,30 @@ public class Director extends Person {
         this.numberOfShows = numberOfShows;
     }
 
+    public int getNumberOfShows() {
+        return numberOfShows;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Director director = (Director) o;
+        return numberOfShows == director.numberOfShows &&
+                Objects.equals(name, director.name) &&
+                Objects.equals(surname, director.surname) &&
+                Objects.equals(gender, director.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, gender, numberOfShows);
+    }
+
     @Override
     public String toString() {
         return name + " " + surname + "\n" +
-                        "Пол режиссёра: " + gender.getGend() + "\n" +
-                            "Количество постановок - " + numberOfShows;
+                "Пол режиссёра: " + gender.getGend() + "\n" +
+                    "Количество постановок - " + numberOfShows;
     }
 }
-

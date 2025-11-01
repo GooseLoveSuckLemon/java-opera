@@ -1,6 +1,5 @@
 package Show;
 import Person.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +8,14 @@ public class Show {
     protected int duration;
     protected Director director;
     protected List<Actor> listOfActors;
+    protected int choirSize;
 
-    public Show(String title, int duration, Director director) {
+    public Show(String title, int duration, Director director, int choirSize) {
         this.title = title;
         this.duration = duration;
         this.director = director;
         listOfActors = new ArrayList<>();
+        this.choirSize = choirSize;
     }
 
     public void addActor(Actor actor){
@@ -28,13 +29,7 @@ public class Show {
             listOfActors.add(actor);
         }
     }
-
     public void printActors() {
-        System.out.println("Спектакль: " + title);
-        System.out.println();
-        System.out.println("Режиссёр: " + director);
-        System.out.println();
-        System.out.println("Список актёров: ");
         for (Actor actor : listOfActors) {
             System.out.println(actor);
         }
@@ -54,6 +49,18 @@ public class Show {
             listOfActors.add(newActor);
             System.out.println("Актёр " + surname + " заменён на " + newActor);
         }
+    }
+
+    public int getChoirSize() {
+        return choirSize;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Director director(){
+        return director;
     }
 }
 
